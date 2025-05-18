@@ -1,61 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="./style/main.css" />
-  <link rel="stylesheet" href="./style/management.css">
-</head>
-<body>
-  <header>
-    <h1>Tablet/Medicine Management</h1>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/main.css" />
+    <link rel="stylesheet" href="./style/management.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Tablet/Medicine Management</h1>
+    </header>
 
-  <main>
-    <section class="medicine-panel">
-      <div class="panel-header">
-        <h2>Medicine List</h2>
-        <button id="addMedicineBtn"><i class="fa-solid fa-plus"></i> Add Medicine</button>
+    <main>
+      <section class="medicine-panel">
+        <div class="panel-header">
+          <h2>Medicine List</h2>
+          <button id="addMedicineBtn">
+            <i class="fa-solid fa-plus"></i> Add Medicine
+          </button>
+        </div>
+
+        <div id="medicineTableContainer">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Dosage</th>
+                <th>Stock</th>
+                <th>Expiry</th>
+                <th>Manufacturer</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="medicineTableBody">
+              <!-- JS will inject rows here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="modal hidden" id="medicineModal">
+        <div class="modal-content">
+          <h3>Add / Edit Medicine</h3>
+          <form id="medicineForm">
+            <input type="text" placeholder="Medicine Name" required />
+            <input type="text" placeholder="Dosage (e.g., 500mg)" required />
+            <input type="number" placeholder="Stock Quantity" required />
+            <input type="date" required />
+            <input type="text" placeholder="Manufacturer" required />
+            <input type="number" placeholder="Price (₱)" step="0.01" required />
+            <button type="submit">Save</button>
+            <button type="button" id="cancelBtn">Cancel</button>
+          </form>
+        </div>
       </div>
+    </main>
 
-      <div id="medicineTableContainer">
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Dosage</th>
-              <th>Stock</th>
-              <th>Expiry</th>
-              <th>Manufacturer</th>
-              <th>Price</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="medicineTableBody">
-            <!-- JS will inject rows here -->
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <div class="modal hidden" id="medicineModal">
-      <div class="modal-content">
-        <h3>Add / Edit Medicine</h3>
-        <form id="medicineForm">
-          <input type="text" placeholder="Medicine Name" required />
-          <input type="text" placeholder="Dosage (e.g., 500mg)" required />
-          <input type="number" placeholder="Stock Quantity" required />
-          <input type="date" required />
-          <input type="text" placeholder="Manufacturer" required />
-          <input type="number" placeholder="Price (₱)" step="0.01" required />
-          <button type="submit">Save</button>
-          <button type="button" id="cancelBtn">Cancel</button>
-        </form>
-      </div>
-    </div>
-  </main>
-
-
-  <script src="./script/main.js"></script>
-</body>
+    <script src="./script/main.js"></script>
+  </body>
 </html>
