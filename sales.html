@@ -8,15 +8,17 @@
   <body>
     <header>
       <h1> Sales and Dispensing</h1>
-  </header>
-
+   </header>
+<main>
   <section id="sales">
     <h2>New Sale</h2>
     <input type="text" id="searchMedicine" placeholder="Search medicine..." list="medicineList" />
-    <datalist id="medicineList"></datalist>
+    <datalist id="medicineList">
+
+    </datalist>
     
     <input type="number" id="quantity" placeholder="Quantity" />
-    <button id="addToCart">Add</button>
+    <button id="addToCart"><i class="fa-solid fa-plus"></i> Add</button>
   
     <table>
       <thead>
@@ -32,7 +34,7 @@
     </table>
   
     <p>Total: <span id="totalAmount">₱0.00</span></p>
-    <button id="finalizeSale">Checkout</button>
+    <button id="finalizeSale"><i class="fa-solid fa-cart-shopping"></i> Checkout</button>
   </section>
   
   <section id="salesHistory">
@@ -49,6 +51,8 @@
       <tbody id="salesHistoryBody"></tbody>
     </table>
   </section>
+</main>
+ 
   
   
     <script src="./script/main.js"></script>

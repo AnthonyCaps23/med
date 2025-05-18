@@ -1,6 +1,6 @@
 document.getElementById('homeLink').addEventListener('click', function(event) {
     event.preventDefault();
-    document.querySelector('section').innerHTML = ''; 
+    document.querySelector('section').innerHTML = '';
     fetch('home.html') 
       .then(response => response.text())
       .then(data => {
@@ -8,11 +8,12 @@ document.getElementById('homeLink').addEventListener('click', function(event) {
       })
       .catch(error => console.error('Error loading home.html:', error));
   });
+  
 // New event listener for management link start
 let editingMedicineName = null;
 document.getElementById('managementLink').addEventListener('click', function(event) {
     event.preventDefault();
-    document.querySelector('section').innerHTML = ''; 
+    document.querySelector('section').innerHTML = '';
     fetch('management.html') 
       .then(response => response.text())
       .then(data => {
@@ -238,7 +239,7 @@ function attachSearchListeners() {
 // SALES LINK HANDLER
 document.getElementById('salesLink').addEventListener('click', function (event) {
   event.preventDefault();
-
+  document.querySelector('section').innerHTML = '';
   fetch('sales.html')
     .then(response => response.text())
     .then(data => {
