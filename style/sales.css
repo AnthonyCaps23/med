@@ -2,7 +2,11 @@
 h1, h2 {
     margin: 0 0 15px 0;
   }
-  
+  .printReceiptBtn{
+    background-color: #767474;
+    border: dashed 1px white;
+    color: white;
+  }
   section {
   color: white;
     padding: 25px 30px;
@@ -63,9 +67,7 @@ h1, h2 {
     vertical-align: middle;
   }
   
-  tbody tr:hover {
-    background-color: #e0fbfc;
-  }
+
   
   #cartBody td:last-child {
     text-align: center;
@@ -126,7 +128,9 @@ h1, h2 {
         background: none;
         border-radius: 20px;
     }
-
+    .printReceiptBtn{
+      font-size: small;
+    }
     #addToCart,
     #finalizeSale {
         width: 100%; 

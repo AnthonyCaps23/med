@@ -15,8 +15,8 @@
     justify-content: flex-start;
     max-height: 500px;
     overflow-y: auto;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none;
+    -ms-overflow-style: none;  
     gap: 10px;
 }
 
@@ -75,6 +75,7 @@
     text-align: center;
     margin-bottom: 50px;
     line-height: 1.8;
+    background-image: linear-gradient(120deg,rgb(161, 159, 159),black,rgb(74, 70, 70));
   }
   
   .recipient-name {
@@ -146,21 +147,22 @@
   
   @media (max-width: 480px) {
     .card {
-      max-width: 100%;
-      padding: 5px;
+        max-width: 100%;
+        padding: 5px;
     }
-  
+
     .certificate-header h1 {
-      font-size: 1.8em;
+        font-size: 1.2em; /* Reduced font size */
     }
-  
+
     .recipient-name {
-      font-size: 1.2em;
+        font-size: 1em; /* Reduced font size */
     }
-  
+
     .certificate-body {
-      font-size: 0.9em;
+        font-size: 0.90em; 
+        background-image: linear-gradient(120deg,rgb(161, 159, 159),black,rgb(74, 70, 70));
     }
-  
-  }
+
+}
   

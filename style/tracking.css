@@ -3,9 +3,8 @@ main {
   }
   
   section {
-    padding: 1.5rem;
-    margin-top: 10px;
-    gap: 10px;
+    padding: 0.5rem;
+    
   }
   
   .head-src {

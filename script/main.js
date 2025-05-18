@@ -385,7 +385,7 @@ function initializeSales() {
         <td>${new Date(sale.date).toLocaleString()}</td>
         <td>₱${sale.total.toFixed(2)}</td>
         <td>${sale.items.map(item => `${item.name} (x${item.quantity})`).join(', ')}</td>
-        <td><button class="printReceiptBtn" data-index="${index}">Print Receipt</button></td>
+        <td><button class="printReceiptBtn" data-index="${index}"><i class="fa-solid fa-print"></i> Receipt</button></td>
       `;
       salesTableBody.appendChild(row);
     });
