@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,24 +10,21 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="https://lottie.host/64839c96-c8dc-4495-9539-570b07312c13/XMh4aavEZK.lottie"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script> <!-- Added Lottie library -->
   </head>
   <body>
     <div id="content"></div>
 
     <section id="disappearingSection">
       <div class="content">
-        <div class="pill">
-          <div class="medicine">
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
-            ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
-            ><i></i><i></i>
-          </div>
-          <div class="side"></div>
-          <div class="side"></div>
-        </div>
+        <dotlottie-player src="https://lottie.host/64839c96-c8dc-4495-9539-570b07312c13/XMh4aavEZK.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
       </div>
     </section>
 
+   
+   
     <footer>
       <a href="home.html" id="homeLink"><i class="fas fa-home"></i> Home</a>
       <a href="management.html" id="managementLink"
@@ -39,6 +37,7 @@
         ><i class="fas fa-chart-line"></i> Sales</a
       >
     </footer>
+    
     <script src="./script/main.js"></script>
   </body>
 </html>
