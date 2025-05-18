@@ -137,21 +137,25 @@
 }
 
 @media (max-width: 768px) {
+  .home-section{
+    padding: 0px;
+  }
   main {
-    margin-top: 50px;
+    margin-top: 90px;
   }
   .home-section {
     flex-direction: column;
     align-items: center;
   }
  
-  
+  .company-certificate{
+    border-radius: 0px;
+  }
   /* Chrome, Safari, and Edge */
   .card-container::-webkit-scrollbar {
     display: none;
   }
   .card-container {
-    display: flex !important;
     max-height: none;
     justify-content: center;
     max-height: 400px;
@@ -162,13 +166,14 @@
 
   .card {
     max-width: 40% !important;
-   
+   padding: 0;
   }
 
   .company-certificate {
     padding: 10px 10 0px 0px;
     margin-top: 10px;
     width: 90%;
+
   }
 
   .certificate-header h1 {
