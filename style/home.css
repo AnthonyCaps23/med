@@ -131,9 +131,7 @@
     justify-content: center;
   }
 
-  .card {
-    max-width: 30%;
-  }
+
 }
 
 @media (max-width: 768px) {
@@ -164,10 +162,7 @@
     -ms-overflow-style: none;
   }
 
-  .card {
-    max-width: 40% !important;
-   padding: 0;
-  }
+  
 
   .company-certificate {
     padding: 10px 10 0px 0px;
