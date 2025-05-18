@@ -1,0 +1,120 @@
+
+h1, h2 {
+    margin: 0 0 15px 0;
+  }
+  
+  section {
+  color: white;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+    margin-bottom: 30px;
+  }
+  
+  #sales input[type="text"],
+  #sales input[type="number"] {
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1.5px solid #ccc;
+    border-radius: 6px;
+    margin-right: 12px;
+    width: 200px;
+    transition: border-color 0.3s ease;
+  }
+  
+  #sales input[type="text"]:focus,
+  #sales input[type="number"]:focus {
+    border-color: #0a9396;
+    outline: none;
+  }
+  
+  #addToCart {
+    padding: 10px 18px;
+    background-color: #0a9396;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #addToCart:hover {
+    background-color: #007f7f;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+  }
+  
+  thead th {
+    background-color: #94d2bd;
+    color: #005f73;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid #0a9396;
+  }
+  
+  tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+  }
+  
+  tbody tr:hover {
+    background-color: #e0fbfc;
+  }
+  
+  #cartBody td:last-child {
+    text-align: center;
+  }
+  
+  #cartBody button.removeBtn {
+    background: #ee6c4d;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  #cartBody button.removeBtn:hover {
+    background-color: #d94f37;
+  }
+  
+  p {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 25px;
+  }
+  
+  #totalAmount {
+    color: #0a9396;
+  }
+  
+  #finalizeSale {
+    margin-top: 15px;
+    padding: 12px 25px;
+    background-color: #005f73;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  #finalizeSale:hover {
+    background-color: #004c57;
+  }
+  
+  #salesHistory {
+    min-height: 150px;
+    /* You can style sales history section here as needed */
+  }
+  
