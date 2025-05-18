@@ -117,4 +117,27 @@ h1, h2 {
     min-height: 150px;
     /* You can style sales history section here as needed */
   }
-  
+  @media (max-width: 600px) {
+    #sales input[type="text"],
+    #sales input[type="number"] {
+        width: 90%; 
+        margin-right: 0;
+        margin-bottom: 10px; 
+        background: none;
+        border-radius: 20px;
+    }
+
+    #addToCart,
+    #finalizeSale {
+        width: 100%; 
+        padding: 12px;
+    }
+
+    table {
+        font-size: 14px; 
+    }
+
+    thead th, tbody td {
+        padding: 10px; 
+    }
+}
