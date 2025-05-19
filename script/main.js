@@ -1,26 +1,68 @@
 document.getElementById('homeLink').addEventListener('click', function(event) {
-    event.preventDefault();
-    document.querySelector('section').innerHTML = '';
-    fetch('home.html') 
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('content').innerHTML = data; 
-      })
-      .catch(error => console.error('Error loading home.html:', error));
-  });
+  event.preventDefault();
+  const contentElement = document.getElementById('content');
+  const loadingEffect = document.getElementById('loadingEffect');
+  const disappearingSection = document.getElementById('disappearingSection'); // Get the section
+
+  // Hide the section
+  disappearingSection.style.display = 'none'; // Hide the section
+
+  // Show loading effect
+  loadingEffect.style.display = 'flex'; // Use flex to center the spinner
+  contentElement.innerHTML = ''; // Clear content
+
+  // Fetch content
+  fetch('home.html') 
+    .then(response => response.text())
+    .then(data => {
+      // Delay for 2 seconds before updating content
+      setTimeout(() => {
+          contentElement.innerHTML = data; // Update content
+          loadingEffect.style.display = 'none'; // Hide loading effect
+          disappearingSection.style.display = 'block'; // Show the section again if needed
+      }, 2000); // 2000 milliseconds = 2 seconds
+    })
+    .catch(error => {
+      console.error('Error loading home.html:', error);
+      contentElement.innerHTML = '<p>Error loading content.</p>'; // Show error message
+      loadingEffect.style.display = 'none'; // Hide loading effect
+      disappearingSection.style.display = 'block'; // Show the section again if needed
+    });
+});
   
 // New event listener for management link start
 let editingMedicineName = null;
 document.getElementById('managementLink').addEventListener('click', function(event) {
-    event.preventDefault();
-    document.querySelector('section').innerHTML = '';
-    fetch('management.html') 
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('content').innerHTML = data; 
-        attachmanagementEventListeners(); 
-      })
-      .catch(error => console.error('Error loading management.html:', error));
+  event.preventDefault();
+  const contentElement = document.getElementById('content');
+  const loadingEffect = document.getElementById('loadingEffect');
+  const disappearingSection = document.getElementById('disappearingSection'); // Get the section
+
+  // Hide the section
+  disappearingSection.style.display = 'none'; // Hide the section
+
+  // Show loading effect
+  loadingEffect.style.display = 'flex'; // Use flex to center the spinner
+  contentElement.innerHTML = ''; // Clear content
+
+  // Fetch content
+  fetch('management.html') 
+    .then(response => response.text())
+    .then(data => {
+      // Delay for 2 seconds before updating content
+      setTimeout(() => {
+          contentElement.innerHTML = data; // Update content
+          loadingEffect.style.display = 'none'; // Hide loading effect
+          disappearingSection.style.display = 'block'; // Show the section again if needed
+          attachmanagementEventListeners(); // Attach event listeners after content is loaded
+      }, 2000); // 2000 milliseconds = 2 seconds
+    })
+    .catch(error => {
+      console.error('Error loading management.html:', error);
+      contentElement.innerHTML = '<p>Error loading content.</p>'; // Show error message
+      loadingEffect.style.display = 'none'; // Hide loading effect
+      disappearingSection.style.display = 'block'; // Show the section again if needed
+    });
 });
 
 function attachmanagementEventListeners() {
@@ -149,14 +191,35 @@ function updateMedicineInLocalStorage(originalName, updatedData) {
 // TRACKING LINK START
 document.getElementById('trackingLink').addEventListener('click', function(event) {
   event.preventDefault();
-  document.querySelector('section').innerHTML = '';
+  const contentElement = document.getElementById('content');
+  const loadingEffect = document.getElementById('loadingEffect');
+  const disappearingSection = document.getElementById('disappearingSection'); // Get the section
+
+  // Hide the section
+  disappearingSection.style.display = 'none'; // Hide the section
+
+  // Show loading effect
+  loadingEffect.style.display = 'flex'; // Use flex to center the spinner
+  contentElement.innerHTML = ''; // Clear content
+
+  // Fetch content
   fetch('tracking.html')
     .then(response => response.text())
     .then(data => {
-      document.getElementById('content').innerHTML = data;
-      loadTrackingData(); // Ensure DOM is ready before attaching listeners
+      // Delay for 2 seconds before updating content
+      setTimeout(() => {
+          contentElement.innerHTML = data; // Update content
+          loadingEffect.style.display = 'none'; // Hide loading effect
+          disappearingSection.style.display = 'block'; // Show the section again if needed
+          loadTrackingData(); // Ensure DOM is ready before attaching listeners
+      }, 2000); // 2000 milliseconds = 2 seconds
     })
-    .catch(error => console.error('Error loading tracking.html:', error));
+    .catch(error => {
+      console.error('Error loading tracking.html:', error);
+      contentElement.innerHTML = '<p>Error loading content.</p>'; // Show error message
+      loadingEffect.style.display = 'none'; // Hide loading effect
+      disappearingSection.style.display = 'block'; // Show the section again if needed
+    });
 });
 
 let cachedMedicines = [];
@@ -280,15 +343,36 @@ function renderExpiryTrackingTables(medicines) {
 // SALES LINK HANDLER
 document.getElementById('salesLink').addEventListener('click', function (event) {
   event.preventDefault();
-  document.querySelector('section').innerHTML = '';
+  const contentElement = document.getElementById('content');
+  const loadingEffect = document.getElementById('loadingEffect');
+  const disappearingSection = document.getElementById('disappearingSection'); // Get the section
+
+  // Hide the section
+  disappearingSection.style.display = 'none'; // Hide the section
+
+  // Show loading effect
+  loadingEffect.style.display = 'flex'; // Use flex to center the spinner
+  contentElement.innerHTML = ''; // Clear content
+
+  // Fetch content
   fetch('sales.html')
     .then(response => response.text())
     .then(data => {
-      document.getElementById('content').innerHTML = data;
-      initializeSales();       // Setup cart and sales logic
-      loadSalesHistory();      // Load previous sales
+      // Delay for 2 seconds before updating content
+      setTimeout(() => {
+          contentElement.innerHTML = data; // Update content
+          loadingEffect.style.display = 'none'; // Hide loading effect
+          disappearingSection.style.display = 'block'; // Show the section again if needed
+          initializeSales();       // Setup cart and sales logic
+          loadSalesHistory();      // Load previous sales
+      }, 2000); // 2000 milliseconds = 2 seconds
     })
-    .catch(error => console.error('Error loading sales.html:', error));
+    .catch(error => {
+      console.error('Error loading sales.html:', error);
+      contentElement.innerHTML = '<p>Error loading content.</p>'; // Show error message
+      loadingEffect.style.display = 'none'; // Hide loading effect
+      disappearingSection.style.display = 'block'; // Show the section again if needed
+    });
 });
 
 // MAIN SALES FUNCTION
