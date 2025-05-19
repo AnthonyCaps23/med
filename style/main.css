@@ -8,26 +8,32 @@ body {
 }
 header {
     color: white;
-    top: 0; 
-    height: 50px;
+    height: 50px; 
     width: 100%;
-    background-color: rgba(54, 54, 54, 0.8);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    background-color: rgba(54, 54, 54, 0.9); 
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
     border-radius: 0px 0px 50px 50px;
     display: flex; 
-    justify-content: space-around;
+    justify-content: flex-start; 
     align-items: center;
+    position: fixed;
+    top: 0;
 }
 
 header h1 {
     display: flex; 
     align-items: center; 
-    margin: 0;
+    margin: 0; 
+    line-height: 1.2;
+    font-size: 24px;
+    font-weight: 600; 
 }
-.lotie{
- width: 70px;
- height: 70px;
- background: transparent;
+
+.lotie {
+    width: 50px; 
+    height: 50px;
+    background: transparent;
+    margin-right: -10px;
 }
 
 
@@ -58,23 +64,28 @@ footer {
 
 @media (max-width: 768px) {
 
-   header h1{
-    font-size: 15px;
-   }
-   header {
-    position: fixed;
-    color: white;
-    top: 0; 
-    height: 50px;
-    width: 100%;
-    border-radius: 0px 0px 50px 50px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.lotie{
-   margin-left: -50px;
-}
+   
+    header {
+        justify-content: center;
+        height: auto;
+        top: 0;
+        position: fixed;
+        z-index: 5;
+    }
+
+    header h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .lotie {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+
+
+
   footer{
     position: fixed;
     bottom: 0;

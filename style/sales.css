@@ -1,5 +1,7 @@
 
-
+main {
+  padding: 5rem;
+}
   section {
   color: white;
     padding: 25px 30px;
@@ -130,7 +132,9 @@
     /* You can style sales history section here as needed */
   }
   @media (max-width: 600px) {
-    
+    main {
+      padding: 0;
+    }
     #sales input[type="text"],
     #sales input[type="number"] {
       color: white;

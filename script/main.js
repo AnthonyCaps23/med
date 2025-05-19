@@ -6,15 +6,17 @@ document.getElementById('homeLink').addEventListener('click', function(event) {
 
   disappearingSection.style.display = 'none';
   loadingEffect.style.display = 'flex';
-  contentElement.innerHTML = '';
+  contentElement.style.display = 'none';
 
   fetch('home.html') 
     .then(response => response.text())
     .then(data => {
       setTimeout(() => {
           contentElement.innerHTML = data; 
+          contentElement.style.display = 'block'; 
           loadingEffect.style.display = 'none';
-      }, 2000);
+          document.getElementById('dynamicHeader').innerText = 'Medical Guidelines'; 
+      }, 900);
     })
     .catch(error => console.error('Error loading home.html:', error));
 });
@@ -30,16 +32,18 @@ document.getElementById('managementLink').addEventListener('click', function(eve
 
   disappearingSection.style.display = 'none';
   loadingEffect.style.display = 'flex';
-  contentElement.innerHTML = '';
+  contentElement.style.display = 'none';
 
   fetch('management.html') 
     .then(response => response.text())
     .then(data => {
       setTimeout(() => {
           contentElement.innerHTML = data; 
+          contentElement.style.display = 'block'; 
           loadingEffect.style.display = 'none';
+          document.getElementById('dynamicHeader').innerText = 'Medicine Management'; 
           attachmanagementEventListeners(); 
-      }, 3000);
+      }, 900);
     })
     .catch(error => console.error('Error loading management.html:', error));
 });
@@ -178,16 +182,18 @@ document.getElementById('trackingLink').addEventListener('click', function(event
 
   disappearingSection.style.display = 'none';
   loadingEffect.style.display = 'flex';
-  contentElement.innerHTML = '';
+  contentElement.style.display = 'none'; 
 
   fetch('tracking.html')
     .then(response => response.text())
     .then(data => {
       setTimeout(() => {
           contentElement.innerHTML = data; 
+          contentElement.style.display = 'block'; 
           loadingEffect.style.display = 'none';
+          document.getElementById('dynamicHeader').innerText = 'Inventory Tracking'; 
           loadTrackingData(); 
-      }, 3000);
+      }, 900);
     })
     .catch(error => console.error('Error loading tracking.html:', error));
 });
@@ -309,7 +315,6 @@ function renderExpiryTrackingTables(medicines) {
 
 
 
-
 // SALES LINK HANDLER
 document.getElementById('salesLink').addEventListener('click', function (event) {
   event.preventDefault();
@@ -319,17 +324,19 @@ document.getElementById('salesLink').addEventListener('click', function (event) 
 
   disappearingSection.style.display = 'none';
   loadingEffect.style.display = 'flex';
-  contentElement.innerHTML = '';
+  contentElement.style.display = 'none'; 
 
   fetch('sales.html')
     .then(response => response.text())
     .then(data => {
       setTimeout(() => {
           contentElement.innerHTML = data; 
-          loadingEffect.style.display = 'none';
+          contentElement.style.display = 'block'; 
+          loadingEffect.style.display = 'none'; 
+          document.getElementById('dynamicHeader').innerText = 'Sales and Dispensing';
           initializeSales();       
           loadSalesHistory();      
-      }, 3000);
+      }, 900);
     })
     .catch(error => console.error('Error loading sales.html:', error));
 });

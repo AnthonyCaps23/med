@@ -1,3 +1,4 @@
+
 .home-section {
   padding: 20px;
   margin-top: 10px;
@@ -19,7 +20,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  max-height: 550px;
+  max-height: 600px;
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -34,7 +35,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
   overflow: hidden;
-  max-width: 300px;
+  max-width: 400px;
   border: solid 1px white;
   padding: 10px;
 }
@@ -139,7 +140,7 @@
     padding: 0px;
   }
   main {
-    margin-top: 90px;
+    margin-top: 70px;
   }
   .home-section {
     flex-direction: column;
@@ -160,6 +161,7 @@
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    margin-top: 10px;
   }
 
   
