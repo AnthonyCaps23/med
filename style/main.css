@@ -90,6 +90,12 @@ footer {
     color: #7c7a7a;
     background:none;
 }
+   footer i,
+   footer a{
+   font-size: small;
+   display: grid;
+   }
+
 }
 
   
