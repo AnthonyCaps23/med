@@ -138,6 +138,9 @@
         background: none;
         border-radius: 20px;
     }
+    .btn-ac{
+      display: flex;
+    }
     .printReceiptBtn{
       font-size: small;
     }

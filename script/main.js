@@ -387,8 +387,11 @@ function loadSalesHistory() {
           <td>₱${sale.total.toFixed(2)}</td>
           <td>${sale.items.map(item => `${item.name} (x${item.quantity})`).join(', ')}</td>
           <td>
-              <button class="printReceiptBtn" data-index="${index}"><i class="fa-solid fa-print"></i></button>
-              <button class="deleteReceiptBtn" data-index="${index}"><i class="fa-solid fa-trash"></i></button> <!-- Added delete button -->
+          <div class="btn-ac">
+             <button class="printReceiptBtn" data-index="${index}"><i class="fa-solid fa-print"></i></button>
+              <button class="deleteReceiptBtn" data-index="${index}"><i class="fa-solid fa-trash"></i></button>
+          </div>
+              
           </td>
       `;
       salesTableBody.appendChild(row);
