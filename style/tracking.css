@@ -108,6 +108,7 @@ th,
   
     table {
       font-size: 10px; 
+      z-index: 0;
     }
   
     th, td {
