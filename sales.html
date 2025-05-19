@@ -4,61 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style/sales.css" />
-  </head>
-  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
     <header>
-      <h1>
-        <dotlottie-player class="lotie" src="https://lottie.host/be331230-5fcf-470f-85c2-0605d94c62c9/Lgp7f43mfM.lottie" 
-        speed="1"  loop autoplay>
-       </dotlottie-player> 
-        Sales and Dispensing</h1>
-   </header>
-<main>
-  <section id="sales">
-    <h2>New Sale <i class="fa-solid fa-coins"></i></h2>
-    <input type="text" id="searchMedicine" placeholder="Search medicine..." list="medicineList" />
-    <datalist id="medicineList">
+        <h1>
+            <dotlottie-player class="lotie" src="https://lottie.host/be331230-5fcf-470f-85c2-0605d94c62c9/Lgp7f43mfM.lottie" speed="1" loop autoplay>
+            </dotlottie-player>
+            Sales and Dispensing
+        </h1>
+    </header>
+    <main>
+        <section id="sales">
+            <h2>New Sale <i class="fa-solid fa-coins"></i></h2>
+            <input type="text" id="searchMedicine" placeholder="Search medicine..." list="medicineList" />
+            <datalist id="medicineList"></datalist>
 
-    </datalist>
-    
-    <input type="number" id="quantity" placeholder="Quantity" />
-    <button id="addToCart"><i class="fa-solid fa-plus"></i> Add</button>
-  
-    <table>
-      <thead>
-        <tr>
-          <th>Medicine</th>
-          <th>Quantity</th>
-          <th>Unit Price</th>
-          <th>Subtotal</th>
-          <th>Remove</th>
-        </tr>
-      </thead>
-      <tbody id="cartBody"></tbody>
-    </table>
-  
-    <p>Total: <span id="totalAmount">₱0.00</span></p>
-    <button id="finalizeSale"><i class="fa-solid fa-cart-shopping"></i> Checkout</button>
-  </section>
-  
-  <section id="salesHistory">
-    <h2>Sales History <i class="fa-solid fa-clock-rotate-left"></i></h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Total</th>
-          <th>Items</th>
-          <th>action</th>
-        </tr>
-      </thead>
-      <tbody id="salesHistoryBody"></tbody>
-    </table>
-  </section>
-</main>
- 
-  
-  
+            <input type="number" id="quantity" placeholder="Quantity" />
+            <button id="addToCart"><i class="fa-solid fa-plus"></i> Add</button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Medicine</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Subtotal</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody id="cartBody"></tbody>
+            </table>
+
+            <p>Total: <span id="totalAmount">₱0.00</span></p>
+            <button id="finalizeSale">
+                <i class="fa-solid fa-cart-shopping"></i> Checkout
+            </button>
+        </section>
+        
+        
+        
+        <section id="salesHistory">
+            <h2>Sales History <i class="fa-solid fa-clock-rotate-left"></i></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Total</th>
+                        <th>Items</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="salesHistoryBody"></tbody>
+            </table>
+        </section>
+    </main>
     <script src="./script/main.js"></script>
-  </body>
+</body>
 </html>

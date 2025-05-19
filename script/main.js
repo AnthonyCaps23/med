@@ -243,7 +243,6 @@ function attachSearchListeners() {
     });
   }
 }
-
 function renderExpiryTrackingTables(medicines) {
   const expiryTableBody = document.getElementById('expiryTrackingBody');
   const today = new Date();
@@ -455,6 +454,59 @@ function loadSalesHistory() {
       });
   });
 }
+function renderSalesChart() {
+  const history = JSON.parse(localStorage.getItem('salesHistory')) || [];
+
+  const labels = history.map(sale => new Date(sale.date).toLocaleDateString());
+  const totals = history.map(sale => sale.total);
+
+  const ctx = document.getElementById('salesChart').getContext('2d');
+  
+  // Destroy existing chart if it exists (prevents duplicates)
+  if (window.salesChartInstance) {
+    window.salesChartInstance.destroy();
+  }
+
+  window.salesChartInstance = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Sales Over Time',
+        data: totals,
+        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        fill: true,
+        tension: 0.3,
+        pointRadius: 5,
+        pointHoverRadius: 7
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top'
+        },
+        tooltip: {
+          callbacks: {
+            label: context => `₱${context.parsed.y.toFixed(2)}`
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: value => `₱${value}`
+          }
+        }
+      }
+    }
+  });
+}
+
 
 // Function to delete a receipt
 function deleteReceipt(index) {
