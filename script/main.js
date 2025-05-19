@@ -373,32 +373,51 @@ function initializeSales() {
     loadSalesHistory(); // Refresh history after sale
   }
 
-  // Load sales history and render it
-  function loadSalesHistory() {
-    const history = JSON.parse(localStorage.getItem('salesHistory')) || [];
-    const salesTableBody = document.getElementById('salesHistoryBody');
-    if (!salesTableBody) return;
+ // Load sales history and render it
+function loadSalesHistory() {
+  const history = JSON.parse(localStorage.getItem('salesHistory')) || [];
+  const salesTableBody = document.getElementById('salesHistoryBody');
+  if (!salesTableBody) return;
 
-    salesTableBody.innerHTML = '';
-    history.forEach((sale, index) => {
+  salesTableBody.innerHTML = '';
+  history.forEach((sale, index) => {
       const row = document.createElement('tr');
       row.innerHTML = `
-        <td>${new Date(sale.date).toLocaleString()}</td>
-        <td>₱${sale.total.toFixed(2)}</td>
-        <td>${sale.items.map(item => `${item.name} (x${item.quantity})`).join(', ')}</td>
-        <td><button class="printReceiptBtn" data-index="${index}"><i class="fa-solid fa-print"></i> Receipt</button></td>
+          <td>${new Date(sale.date).toLocaleString()}</td>
+          <td>₱${sale.total.toFixed(2)}</td>
+          <td>${sale.items.map(item => `${item.name} (x${item.quantity})`).join(', ')}</td>
+          <td>
+              <button class="printReceiptBtn" data-index="${index}"><i class="fa-solid fa-print"></i></button>
+              <button class="deleteReceiptBtn" data-index="${index}"><i class="fa-solid fa-trash"></i></button> <!-- Added delete button -->
+          </td>
       `;
       salesTableBody.appendChild(row);
-    });
+  });
 
-    // Attach print functionality to each button
-    document.querySelectorAll('.printReceiptBtn').forEach(btn => {
+  // Attach print functionality to each button
+  document.querySelectorAll('.printReceiptBtn').forEach(btn => {
       btn.addEventListener('click', e => {
-        const index = parseInt(e.target.getAttribute('data-index'));
-        printReceipt(history[index]);
+          const index = parseInt(e.target.getAttribute('data-index'));
+          printReceipt(history[index]);
       });
-    });
-  }
+  });
+
+  // Attach delete functionality to each delete button
+  document.querySelectorAll('.deleteReceiptBtn').forEach(btn => {
+      btn.addEventListener('click', e => {
+          const index = parseInt(e.target.getAttribute('data-index'));
+          deleteReceipt(index);
+      });
+  });
+}
+
+// Function to delete a receipt
+function deleteReceipt(index) {
+  let history = JSON.parse(localStorage.getItem('salesHistory')) || [];
+  history.splice(index, 1); // Remove the receipt at the specified index
+  localStorage.setItem('salesHistory', JSON.stringify(history)); // Update localStorage
+  loadSalesHistory(); // Refresh the displayed sales history
+}
 
   // Print receipt in new window
   function printReceipt(sale) {

@@ -8,15 +8,26 @@ body {
 }
 header {
     color: white;
-    top: 0; /* Ensure the footer is at the bottom */
+    top: 0; 
     height: 50px;
     width: 100%;
     background-color: rgba(54, 54, 54, 0.8);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     border-radius: 0px 0px 50px 50px;
-    display: flex;
+    display: flex; 
     justify-content: space-around;
     align-items: center;
+}
+
+header h1 {
+    display: flex; 
+    align-items: center; 
+    margin: 0;
+}
+.lotie{
+ width: 70px;
+ height: 70px;
+ background: transparent;
 }
 
 
@@ -48,22 +59,22 @@ footer {
 @media (max-width: 768px) {
 
    header h1{
-    font-size: small;
+    font-size: 15px;
    }
    header {
     position: fixed;
     color: white;
-    top: 0; /* Ensure the footer is at the bottom */
+    top: 0; 
     height: 50px;
     width: 100%;
-    background-color: rgba(54, 54, 54, 0.8);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     border-radius: 0px 0px 50px 50px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-
+.lotie{
+   margin-left: -50px;
+}
   footer{
     position: fixed;
     bottom: 0;

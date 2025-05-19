@@ -9,7 +9,11 @@
 <body>
 
   <header>
-    <h1>Inventory Tracking</h1>
+    <h1>
+      <dotlottie-player class="lotie" src="https://lottie.host/be331230-5fcf-470f-85c2-0605d94c62c9/Lgp7f43mfM.lottie" 
+      speed="1"  loop autoplay>
+     </dotlottie-player> 
+      Inventory Tracking</h1>
   </header>
 
   <main>
@@ -18,35 +22,42 @@
         <h2>Stock Levels</h2>
         <input  type="text" id="stockSearch" placeholder="Search medicine name..." />
       </div>
-     
+     <div class="stock-track">
       <table>
         <thead>
           <tr>
             <th>Medicine Name</th>
             <th>Stock</th>
-            <th>Minimum Threshold</th>
+            <th>Minimum </th>
             <th>Manufacturer</th> 
             <th>Status</th>
           </tr>
         </thead>
-        <tbody id="stockLevelsBody"></tbody>
+        <tbody id="stockLevelsBody">
+        </tbody>
       </table>
+     </div >
+    
     </section>
     <section>
       <div class="head-src">
         <h2>Expiry Tracking</h2>
         <input type="text" id="expirySearch" placeholder="Search medicine name..." />
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Medicine Name</th>
-              <th>Expiry Date</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody id="expiryTrackingBody"></tbody>
-        </table>
+        <div class="expiry-track">
+          <table>
+            <thead>
+              <tr>
+                <th>Medicine Name</th>
+                <th>Expiry Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="expiryTrackingBody">
+            </tbody>
+          </table>
+        </div>
+      
     </section>
    
   
