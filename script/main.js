@@ -218,6 +218,7 @@ function renderTrackingTables(medicines) {
 
 function attachSearchListeners() {
   const stockSearchInput = document.getElementById('stockSearch');
+  const expirySearchInput = document.getElementById('expirySearch'); // Added expiry search input
 
   if (stockSearchInput) {
     stockSearchInput.addEventListener('input', () => {
@@ -229,6 +230,47 @@ function attachSearchListeners() {
       renderTrackingTables(filtered);
     });
   }
+
+  // New listener for expiry search
+  if (expirySearchInput) {
+    expirySearchInput.addEventListener('input', () => {
+      const query = expirySearchInput.value.toLowerCase();
+      const filtered = cachedMedicines.filter(med =>
+        med.name.toLowerCase().includes(query) ||
+        med.manufacturer?.toLowerCase().includes(query)
+      );
+      renderExpiryTrackingTables(filtered); // Call a new function to render expiry tracking
+    });
+  }
+}
+
+function renderExpiryTrackingTables(medicines) {
+  const expiryTableBody = document.getElementById('expiryTrackingBody');
+  const today = new Date();
+
+  expiryTableBody.innerHTML = ''; // Clear existing rows
+
+  medicines.forEach(med => {
+    const expiryRow = document.createElement('tr');
+    const expiryDate = new Date(med.expiry);
+    const daysLeft = Math.ceil((expiryDate - today) / (1000 * 60 * 60 * 24));
+    let expiryStatus = '';
+
+    if (expiryDate < today) {
+      expiryStatus = '<span style="color:red; font-weight: bold;">Expired</span>';
+    } else if (daysLeft <= 30) {
+      expiryStatus = '<span style="color:orange; font-weight: bold;">Expiring Soon</span>';
+    } else {
+      expiryStatus = '<span style="color:green;">Valid</span>';
+    }
+
+    expiryRow.innerHTML = `
+      <td>${med.name}</td>
+      <td>${med.expiry}</td>
+      <td>${expiryStatus}</td>
+    `;
+    expiryTableBody.appendChild(expiryRow);
+  });
 }
 // TRACKING LINK END
 

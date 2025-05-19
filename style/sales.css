@@ -11,6 +11,7 @@
   
   #sales input[type="text"],
   #sales input[type="number"] {
+    color: white;
     background: none;
     padding: 10px 12px;
     font-size: 16px;
@@ -132,6 +133,7 @@
     
     #sales input[type="text"],
     #sales input[type="number"] {
+      color: white;
         width: 93%; 
         margin-right: 0;
         margin-bottom: 10px; 
