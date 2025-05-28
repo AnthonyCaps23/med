@@ -6,6 +6,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="./style/systemflow.css" />
   </head>
   <body>
     <main class="main-container">
@@ -355,53 +356,95 @@
                 </p>
               </div>
             </div>
-            <div class="certificate-body">
-              <div class="certificate-content">
-                <a
-                  href="https://images.bannerbear.com/direct/4mGpW3zwrxA1K0AxQw/requests/000/091/119/267/7gAk4KJj8Qm1yOd7QvwqxrD20/40f6df36dd49b14472eceda505220f498e1cc78e.pdf"
-                  class="download-link"
-                >
-                  <i class="fas fa-cloud-arrow-down"></i> Download PDF
-                </a>
-                <p>This certificate is proudly presented to</p>
-                <h2 class="recipient-name">members</h2>
-                <p>for successfully completing</p>
-                <p class="course-name">
-                  <strong>Medical Records Management Training</strong>
-                </p>
-                <p class="date-issued">
-                  Issued on: <strong>May 16, 2025</strong>
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
     </main>
 
-            <div class="certificate-body">
-              <div class="certificate-content">
-                <a
-                  href="https://images.bannerbear.com/direct/4mGpW3zwrxA1K0AxQw/requests/000/091/119/267/7gAk4KJj8Qm1yOd7QvwqxrD20/40f6df36dd49b14472eceda505220f498e1cc78e.pdf"
-                  class="download-link"
-                >
-                  <i class="fas fa-cloud-arrow-down"></i> Download PDF
-                </a>
-                <p>This certificate is proudly presented to</p>
-                <h2 class="recipient-name">members</h2>
-                <p>for successfully completing</p>
-                <p class="course-name">
-                  <strong>Medical Records Management Training</strong>
-                </p>
-                <p class="date-issued">
-                  Issued on: <strong>May 16, 2025</strong>
-                </p>
+    <div class="flow-container">
+      <h1 class="flow-title">System Flow</h1>
+
+      <div class="flow-diagram">
+        <!-- Start -->
+        <div class="flow-item start">
+          <i class="fas fa-play-circle"></i>
+          <span>Start</span>
+        </div>
+
+        <!-- Main Menu -->
+        <div class="flow-item menu">
+          <i class="fas fa-bars"></i>
+          <span>Main Menu</span>
+        </div>
+
+        <!-- Branch Container -->
+        <div class="branch-container">
+          <!-- Medicine Management -->
+          <div class="flow-branch">
+            <div class="flow-item">
+              <i class="fas fa-pills"></i>
+              <span>Medicine Management</span>
+            </div>
+            <div class="sub-flow">
+              <div class="flow-item">
+                <i class="fas fa-plus"></i>
+                <span>Add Medicine</span>
+              </div>
+              <div class="flow-item">
+                <i class="fas fa-edit"></i>
+                <span>Edit Medicine</span>
+              </div>
+              <div class="flow-item">
+                <i class="fas fa-trash"></i>
+                <span>Delete Medicine</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sales -->
+          <div class="flow-branch">
+            <div class="flow-item">
+              <i class="fas fa-cash-register"></i>
+              <span>Sales</span>
+            </div>
+            <div class="sub-flow">
+              <div class="flow-item">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Add to Cart</span>
+              </div>
+              <div class="flow-item">
+                <i class="fas fa-receipt"></i>
+                <span>Generate Receipt</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inventory Tracking -->
+          <div class="flow-branch">
+            <div class="flow-item">
+              <i class="fas fa-boxes"></i>
+              <span>Inventory Tracking</span>
+            </div>
+            <div class="sub-flow">
+              <div class="flow-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Stock Levels</span>
+              </div>
+              <div class="flow-item">
+                <i class="fas fa-calendar-times"></i>
+                <span>Expiry Tracking</span>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </main>
+
+        <!-- End -->
+        <div class="flow-item end">
+          <i class="fas fa-stop-circle"></i>
+          <span>End</span>
+        </div>
+      </div>
+    </div>
 
     <script src="./script/main.js"></script>
   </body>

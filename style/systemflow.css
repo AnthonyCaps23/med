@@ -1,0 +1,168 @@
+/* System Flow Styles */
+
+
+.flow-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+}
+
+.flow-title {
+    text-align: center;
+    color: #ffffff;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.flow-diagram {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+}
+
+.flow-item {
+    background: rgba(76, 175, 80, 0.1);
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    padding: 15px 25px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #ffffff;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.flow-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.2);
+}
+
+.flow-item i {
+    font-size: 1.5em;
+    color: #4CAF50;
+}
+
+.flow-item span {
+    font-size: 1.1em;
+}
+
+.flow-item.start {
+    background: rgba(76, 175, 80, 0.2);
+    border-color: #4CAF50;
+}
+
+.flow-item.end {
+    background: rgba(244, 67, 54, 0.2);
+    border-color: #F44336;
+}
+
+.flow-item.end i {
+    color: #F44336;
+}
+
+.flow-item.menu {
+    background: rgba(33, 150, 243, 0.2);
+    border-color: #2196F3;
+}
+
+.flow-item.menu i {
+    color: #2196F3;
+}
+
+.branch-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.flow-branch {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.sub-flow {
+    margin-left: 20px;
+    border-left: 2px dashed #4CAF50;
+    padding-left: 20px;
+}
+
+.sub-flow .flow-item {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(76, 175, 80, 0.5);
+}
+
+/* Connector Lines */
+.flow-item::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background: #4CAF50;
+}
+
+.flow-item:last-child::after {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .flow-container {
+        width: 95%;
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .flow-title {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+
+    .branch-container {
+        grid-template-columns: 1fr;
+    }
+
+    .flow-item {
+        padding: 10px 15px;
+    }
+
+    .flow-item i {
+        font-size: 1.2em;
+    }
+
+    .flow-item span {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .flow-container {
+        padding: 10px;
+        margin: 15px auto;
+    }
+
+    .flow-title {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    .flow-diagram {
+        padding: 15px;
+    }
+
+    .sub-flow {
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+}
