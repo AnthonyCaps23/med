@@ -15,12 +15,11 @@ document.getElementById('homeLink').addEventListener('click', function(event) {
           contentElement.innerHTML = data; 
           contentElement.style.display = 'block'; 
           loadingEffect.style.display = 'none';
-          document.getElementById('dynamicHeader').innerText = 'Medical Guidelines'; 
+          document.getElementById('dynamicHeader').innerText = 'Medical Guidelines';
       }, 900);
     })
     .catch(error => console.error('Error loading home.html:', error));
 });
-
 
 // New event listener for management link start
 let editingMedicineName = null;

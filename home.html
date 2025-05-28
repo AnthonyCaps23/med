@@ -2,233 +2,401 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="./style/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
   <body>
-   
-    <main style="margin-top: 30px; overflow-y: auto;height: 900px;">
+    <main class="main-container">
+      <!-- Sliding Background Section -->
+      <div class="slider-container">
+        <div class="slider">
+          <div class="slide">
+            <img
+              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              alt="Medical Background 1"
+              loading="eager"
+            />
+            <div class="slide-content">
+              <h2>Welcome to MediCare</h2>
+              <p>Your trusted partner in healthcare management</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img
+              src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80"
+              alt="Medical Background 2"
+              loading="eager"
+            />
+            <div class="slide-content">
+              <h2>Professional Care</h2>
+              <p>Delivering excellence in medical services</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img
+              src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80"
+              alt="Medical Background 3"
+              loading="eager"
+            />
+            <div class="slide-content">
+              <h2>Quality Service</h2>
+              <p>Committed to your health and well-being</p>
+            </div>
+          </div>
+        </div>
+        <div class="slider-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+
       <section class="home-section">
+        <!-- Video Tutorials Section -->
+        <div class="section-header">
+          <h2><i class="fas fa-video"></i> Medical Training Videos</h2>
+          <p class="section-description">
+            Essential training materials for medical professionals
+          </p>
+        </div>
+
         <div class="card-container">
           <div class="card">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/4Rd9ZeAYZgc?si=wWX8KMnQ2WynRGFQ"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/4Rd9ZeAYZgc?si=wWX8KMnQ2WynRGFQ"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="card-content">
+              <h3>Medical Records Management</h3>
+              <p>
+                Learn essential practices for managing medical records
+                effectively
+              </p>
+            </div>
           </div>
           <div class="card">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/g3sg9ovsgyM?si=W2qJ4ChR8W_TvZgg"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/g3sg9ovsgyM?si=W2qJ4ChR8W_TvZgg"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="card-content">
+              <h3>Patient Care Guidelines</h3>
+              <p>Best practices for patient care and management</p>
+            </div>
           </div>
           <div class="card">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/KlVazBiOnzI?si=fkIQVCmbYK2edeJ5"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/KlVazBiOnzI?si=fkIQVCmbYK2edeJ5"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="card-content">
+              <h3>Medical Records Management</h3>
+              <p>
+                Learn essential practices for managing medical records
+                effectively
+              </p>
+            </div>
           </div>
           <div class="card">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/bXE3tWjKfdM?si=aVJtXDgC-hhhJV2w"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/bXE3tWjKfdM?si=aVJtXDgC-hhhJV2w"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="card-content">
+              <h3>Patient Care Guidelines</h3>
+              <p>Best practices for patient care and management</p>
+            </div>
           </div>
           <div class="card">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/z8h1mRqI3_I?si=bGm0H-mh2Psi__Au"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/z8h1mRqI3_I?si=bGm0H-mh2Psi__Au"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="card-content">
+              <h3>Medical Records Management</h3>
+              <p>
+                Learn essential practices for managing medical records
+                effectively
+              </p>
+            </div>
           </div>
           <div class="card">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/PD-ucQ7EAl4?si=QA3bUzM9BcVilxo4"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/PD-ucQ7EAl4?si=QA3bUzM9BcVilxo4"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="card-content">
+              <h3>Patient Care Guidelines</h3>
+              <p>Best practices for patient care and management</p>
+            </div>
           </div>
           <div class="card">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/_-UHhkIYht4?si=wLygfE66q9k5gKMX"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/_-UHhkIYht4?si=wLygfE66q9k5gKMX"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="card-content">
+              <h3>Medical Records Management</h3>
+              <p>
+                Learn essential practices for managing medical records
+                effectively
+              </p>
+            </div>
           </div>
           <div class="card">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/KKQ21vh_p-w?si=PWd_ZH8eVZBLvKzU"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/KKQ21vh_p-w?si=PWd_ZH8eVZBLvKzU"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="card-content">
+              <h3>Patient Care Guidelines</h3>
+              <p>Best practices for patient care and management</p>
+            </div>
           </div>
           <div class="card">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/xKjI9M6ThzM?si=sqhRLS37J_fI7V0B"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/xKjI9M6ThzM?si=sqhRLS37J_fI7V0B"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="card-content">
+              <h3>Medical Records Management</h3>
+              <p>
+                Learn essential practices for managing medical records
+                effectively
+              </p>
+            </div>
           </div>
           <div class="card">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/E5uLM41URmE?si=CGB5pBDqxLkVBuqs"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/E5uLM41URmE?si=CGB5pBDqxLkVBuqs"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="card-content">
+              <h3>Patient Care Guidelines</h3>
+              <p>Best practices for patient care and management</p>
+            </div>
           </div>
         </div>
 
+        <!-- Certificates Section -->
+        <div class="section-header">
+          <h2>
+            <i class="fas fa-certificate"></i> Certificates of Recognition
+          </h2>
+          <p class="section-description">
+            Acknowledging excellence in medical training
+          </p>
+        </div>
+
         <div class="company-certificate">
-         
           <div class="certificate-header">
-            <h1>Certificate of Recognition </h1>
-            <p class="issued-by">Issued by MediCare Health Solutions  <i class="fa-solid fa-certificate"></i></p>
+            <h1>Certificate of Recognition</h1>
+            <p class="issued-by">
+              Issued by MediCare Health Solutions
+              <i class="fas fa-certificate"></i>
+            </p>
           </div>
+
           <div class="cert-body-scroll">
             <div class="certificate-body">
-            
-                <a href="https://images.bannerbear.com/direct/4mGpW3zwrxA1K0AxQw/requests/000/091/119/267/7gAk4KJj8Qm1yOd7QvwqxrD20/40f6df36dd49b14472eceda505220f498e1cc78e.pdf"><i class="fa-solid fa-cloud-arrow-down"></i> pdf</a>
-              
-              <style>
-                a{
-                   border-radius: 10px;
-                   color:white;
-                 
-                   display: block;
-                   position: relative;
-                }
-              </style>
-              <p>This certificate is proudly presented to</p>
-              <h2 class="recipient-name">Pegie S. Perez</h2>
-              <p>for successfully completing</p>
-              <p><strong>Medical Records Management Training</strong></p>
-              <p class="date-issued">
-                Issued on: <strong>May 16, 2025</strong>
-              </p>
+              <div class="certificate-content">
+                <a
+                  href="https://images.bannerbear.com/direct/4mGpW3zwrxA1K0AxQw/requests/000/091/119/267/7gAk4KJj8Qm1yOd7QvwqxrD20/40f6df36dd49b14472eceda505220f498e1cc78e.pdf"
+                  class="download-link"
+                >
+                  <i class="fas fa-cloud-arrow-down"></i> Download PDF
+                </a>
+                <p>This certificate is proudly presented to</p>
+                <h2 class="recipient-name">Pegie S. Perez</h2>
+                <p>for successfully completing</p>
+                <p class="course-name">
+                  <strong>Medical Records Management Training</strong>
+                </p>
+                <p class="date-issued">
+                  Issued on: <strong>May 16, 2025</strong>
+                </p>
+              </div>
             </div>
             <div class="certificate-body">
-              <p>This certificate is proudly presented to</p>
-              <h2 class="recipient-name">members</h2>
-              <p>for successfully completing</p>
-              <p><strong>Medical Records Management Training</strong></p>
-              <p class="date-issued">
-                Issued on: <strong>May 16, 2025</strong>
-              </p>
+              <div class="certificate-content">
+                <a
+                  href="https://images.bannerbear.com/direct/4mGpW3zwrxA1K0AxQw/requests/000/091/119/267/7gAk4KJj8Qm1yOd7QvwqxrD20/40f6df36dd49b14472eceda505220f498e1cc78e.pdf"
+                  class="download-link"
+                >
+                  <i class="fas fa-cloud-arrow-down"></i> Download PDF
+                </a>
+                <p>This certificate is proudly presented to</p>
+                <h2 class="recipient-name">members</h2>
+                <p>for successfully completing</p>
+                <p class="course-name">
+                  <strong>Medical Records Management Training</strong>
+                </p>
+                <p class="date-issued">
+                  Issued on: <strong>May 16, 2025</strong>
+                </p>
+              </div>
             </div>
             <div class="certificate-body">
-              <p>This certificate is proudly presented to</p>
-              <h2 class="recipient-name">members</h2>
-              <p>for successfully completing</p>
-              <p><strong>Medical Records Management Training</strong></p>
-              <p class="date-issued">
-                Issued on: <strong>May 16, 2025</strong>
-              </p>
+              <div class="certificate-content">
+                <a
+                  href="https://images.bannerbear.com/direct/4mGpW3zwrxA1K0AxQw/requests/000/091/119/267/7gAk4KJj8Qm1yOd7QvwqxrD20/40f6df36dd49b14472eceda505220f498e1cc78e.pdf"
+                  class="download-link"
+                >
+                  <i class="fas fa-cloud-arrow-down"></i> Download PDF
+                </a>
+                <p>This certificate is proudly presented to</p>
+                <h2 class="recipient-name">members</h2>
+                <p>for successfully completing</p>
+                <p class="course-name">
+                  <strong>Medical Records Management Training</strong>
+                </p>
+                <p class="date-issued">
+                  Issued on: <strong>May 16, 2025</strong>
+                </p>
+              </div>
             </div>
             <div class="certificate-body">
-              <p>This certificate is proudly presented to</p>
-              <h2 class="recipient-name">members</h2>
-              <p>for successfully completing</p>
-              <p><strong>Medical Records Management Training</strong></p>
-              <p class="date-issued">
-                Issued on: <strong>May 16, 2025</strong>
-              </p>
+              <div class="certificate-content">
+                <a
+                  href="https://images.bannerbear.com/direct/4mGpW3zwrxA1K0AxQw/requests/000/091/119/267/7gAk4KJj8Qm1yOd7QvwqxrD20/40f6df36dd49b14472eceda505220f498e1cc78e.pdf"
+                  class="download-link"
+                >
+                  <i class="fas fa-cloud-arrow-down"></i> Download PDF
+                </a>
+                <p>This certificate is proudly presented to</p>
+                <h2 class="recipient-name">members</h2>
+                <p>for successfully completing</p>
+                <p class="course-name">
+                  <strong>Medical Records Management Training</strong>
+                </p>
+                <p class="date-issued">
+                  Issued on: <strong>May 16, 2025</strong>
+                </p>
+              </div>
             </div>
             <div class="certificate-body">
-              <p>This certificate is proudly presented to</p>
-              <h2 class="recipient-name">members</h2>
-              <p>for successfully completing</p>
-              <p><strong>Medical Records Management Training</strong></p>
-              <p class="date-issued">
-                Issued on: <strong>May 16, 2025</strong>
-              </p>
+              <div class="certificate-content">
+                <a
+                  href="https://images.bannerbear.com/direct/4mGpW3zwrxA1K0AxQw/requests/000/091/119/267/7gAk4KJj8Qm1yOd7QvwqxrD20/40f6df36dd49b14472eceda505220f498e1cc78e.pdf"
+                  class="download-link"
+                >
+                  <i class="fas fa-cloud-arrow-down"></i> Download PDF
+                </a>
+                <p>This certificate is proudly presented to</p>
+                <h2 class="recipient-name">members</h2>
+                <p>for successfully completing</p>
+                <p class="course-name">
+                  <strong>Medical Records Management Training</strong>
+                </p>
+                <p class="date-issued">
+                  Issued on: <strong>May 16, 2025</strong>
+                </p>
+              </div>
             </div>
             <div class="certificate-body">
-              <p>This certificate is proudly presented to</p>
-              <h2 class="recipient-name">members</h2>
-              <p>for successfully completing</p>
-              <p><strong>Medical Records Management Training</strong></p>
-              <p class="date-issued">
-                Issued on: <strong>May 16, 2025</strong>
-              </p>
+              <div class="certificate-content">
+                <a
+                  href="https://images.bannerbear.com/direct/4mGpW3zwrxA1K0AxQw/requests/000/091/119/267/7gAk4KJj8Qm1yOd7QvwqxrD20/40f6df36dd49b14472eceda505220f498e1cc78e.pdf"
+                  class="download-link"
+                >
+                  <i class="fas fa-cloud-arrow-down"></i> Download PDF
+                </a>
+                <p>This certificate is proudly presented to</p>
+                <h2 class="recipient-name">members</h2>
+                <p>for successfully completing</p>
+                <p class="course-name">
+                  <strong>Medical Records Management Training</strong>
+                </p>
+                <p class="date-issued">
+                  Issued on: <strong>May 16, 2025</strong>
+                </p>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
             <div class="certificate-body">
-              <p>This certificate is proudly presented to</p>
-              <h2 class="recipient-name">members</h2>
-              <p>for successfully completing</p>
-              <p><strong>Medical Records Management Training</strong></p>
-              <p class="date-issued">
-                Issued on: <strong>May 16, 2025</strong>
-              </p>
-            </div>
-            <div class="certificate-body">
-              <p>This certificate is proudly presented to</p>
-              <h2 class="recipient-name">members</h2>
-              <p>for successfully completing</p>
-              <p><strong>Medical Records Management Training</strong></p>
-              <p class="date-issued">
-                Issued on: <strong>May 16, 2025</strong>
-              </p>
-            </div>
-            <div class="certificate-body">
-              <p>This certificate is proudly presented to</p>
-              <h2 class="recipient-name">members</h2>
-              <p>for successfully completing</p>
-              <p><strong>Medical Records Management Training</strong></p>
-              <p class="date-issued">
-                Issued on: <strong>May 16, 2025</strong>
-              </p>
+              <div class="certificate-content">
+                <a
+                  href="https://images.bannerbear.com/direct/4mGpW3zwrxA1K0AxQw/requests/000/091/119/267/7gAk4KJj8Qm1yOd7QvwqxrD20/40f6df36dd49b14472eceda505220f498e1cc78e.pdf"
+                  class="download-link"
+                >
+                  <i class="fas fa-cloud-arrow-down"></i> Download PDF
+                </a>
+                <p>This certificate is proudly presented to</p>
+                <h2 class="recipient-name">members</h2>
+                <p>for successfully completing</p>
+                <p class="course-name">
+                  <strong>Medical Records Management Training</strong>
+                </p>
+                <p class="date-issued">
+                  Issued on: <strong>May 16, 2025</strong>
+                </p>
+              </div>
             </div>
           </div>
         </div>
