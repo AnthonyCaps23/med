@@ -24,6 +24,7 @@ document.getElementById('homeLink').addEventListener('click', function(event) {
 
 // New event listener for management link start
 let editingMedicineName = null;
+let editingMedicineExpiry = null;
 document.getElementById('managementLink').addEventListener('click', function(event) {
   event.preventDefault();
   const contentElement = document.getElementById('content');
@@ -51,6 +52,7 @@ document.getElementById('managementLink').addEventListener('click', function(eve
 function attachmanagementEventListeners() {
   document.getElementById('addMedicineBtn').addEventListener('click', function() {
       editingMedicineName = null;
+      editingMedicineExpiry = null;
       document.getElementById('medicineForm').reset();
       document.getElementById('medicineModal').classList.remove('hidden');
   });
@@ -62,24 +64,26 @@ function attachmanagementEventListeners() {
   newForm.addEventListener('submit', function(event) {
       event.preventDefault();
 
-      const [nameInput, dosageInput, stockInput, expiryInput, manufacturerInput, priceInput] = event.target.elements; // Added priceInput
+      const [nameInput, dosageInput, stockInput, expiryInput, manufacturerInput, priceInput] = event.target.elements;
       const medicineName = nameInput.value.trim();
       const dosage = dosageInput.value.trim();
       const stock = stockInput.value.trim();
       const expiry = expiryInput.value;
       const manufacturer = manufacturerInput.value.trim();
-      const price = parseFloat(priceInput.value); // Get price from input
+      const price = parseFloat(priceInput.value);
 
-      if (!medicineName || !dosage || !stock || !expiry || !manufacturer || isNaN(price)) { // Check if price is valid
+      if (!medicineName || !dosage || !stock || !expiry || !manufacturer || isNaN(price)) {
           alert("Please fill in all fields.");
           return;
       }
 
-      if (editingMedicineName) {
-          updateMedicineInLocalStorage(editingMedicineName, { name: medicineName, dosage, stock, expiry, manufacturer, price }); // Include price
+      if (editingMedicineName && editingMedicineExpiry) {
+          updateMedicineInLocalStorage(editingMedicineName, editingMedicineExpiry, 
+              { name: medicineName, dosage, stock, expiry, manufacturer, price });
           editingMedicineName = null;
+          editingMedicineExpiry = null;
       } else {
-          addMedicineToTable(medicineName, dosage, stock, expiry, manufacturer, price); // Pass price
+          addMedicineToTable(medicineName, dosage, stock, expiry, manufacturer, price);
       }
 
       document.getElementById('medicineModal').classList.add('hidden');
@@ -90,6 +94,7 @@ function attachmanagementEventListeners() {
   document.getElementById('cancelBtn').addEventListener('click', function() {
       document.getElementById('medicineModal').classList.add('hidden');
       editingMedicineName = null;
+      editingMedicineExpiry = null;
   });
 
   loadMedicines();
@@ -101,7 +106,7 @@ function loadMedicines() {
   tableBody.innerHTML = '';
 
   medicines.forEach(medicine => {
-      addMedicineToTable(medicine.name, medicine.dosage, medicine.stock, medicine.expiry, medicine.manufacturer, medicine.price, false); // Include price
+      addMedicineToTable(medicine.name, medicine.dosage, medicine.stock, medicine.expiry, medicine.manufacturer, medicine.price, false);
   });
 }
 
@@ -120,26 +125,27 @@ function addMedicineToTable(name, dosage, stock, expiry, manufacturer, price, sa
       <td>${stock}</td>
       <td>${expiry}</td>
       <td>${manufacturer}</td>
-      <td>${price.toFixed(2)}</td> <!-- Display price -->
+      <td>${price.toFixed(2)}</td>
       <td class="actionbtns">
-          <button class="editBtn"><i class="fas fa-edit"></i></button>
-          <button class="deleteBtn"><i class="fas fa-trash"></i></button>
+          <button class="editBtn" data-name="${name}" data-expiry="${expiry}"><i class="fas fa-edit"></i></button>
+          <button class="deleteBtn" data-name="${name}" data-expiry="${expiry}"><i class="fas fa-trash"></i></button>
       </td>
   `;
 
   tableBody.appendChild(newRow);
 
   if (save) {
-      saveMedicineToLocalStorage(name, dosage, stock, expiry, manufacturer, price); // Include price
+      saveMedicineToLocalStorage(name, dosage, stock, expiry, manufacturer, price);
   }
 
   newRow.querySelector('.deleteBtn').addEventListener('click', function() {
       tableBody.removeChild(newRow);
-      removeMedicineFromLocalStorage(name);
+      removeMedicineFromLocalStorage(name, expiry);
   });
 
   newRow.querySelector('.editBtn').addEventListener('click', function() {
       editingMedicineName = name;
+      editingMedicineExpiry = expiry;
       const form = document.getElementById('medicineForm');
       const [nameInput, dosageInput, stockInput, expiryInput, manufacturerInput, priceInput] = form.elements;
 
@@ -148,30 +154,30 @@ function addMedicineToTable(name, dosage, stock, expiry, manufacturer, price, sa
       stockInput.value = stock;
       expiryInput.value = expiry;
       manufacturerInput.value = manufacturer;
-      priceInput.value = price; // Set price in the form
+      priceInput.value = price;
       document.getElementById('medicineModal').classList.remove('hidden');
   });
 }
 
-function saveMedicineToLocalStorage(name, dosage, stock, expiry, manufacturer, price) { // Include price
+function saveMedicineToLocalStorage(name, dosage, stock, expiry, manufacturer, price) {
   let medicines = JSON.parse(localStorage.getItem('medicines')) || [];
-  medicines.push({ name, dosage, stock, expiry, manufacturer, price }); // Include price
+  medicines.push({ name, dosage, stock, expiry, manufacturer, price });
   localStorage.setItem('medicines', JSON.stringify(medicines));
 }
 
-function removeMedicineFromLocalStorage(name) {
+function removeMedicineFromLocalStorage(name, expiry) {
   let medicines = JSON.parse(localStorage.getItem('medicines')) || [];
-  medicines = medicines.filter(medicine => medicine.name !== name);
+  medicines = medicines.filter(medicine => !(medicine.name === name && medicine.expiry === expiry));
   localStorage.setItem('medicines', JSON.stringify(medicines));
 }
 
-function updateMedicineInLocalStorage(originalName, updatedData) {
+function updateMedicineInLocalStorage(originalName, originalExpiry, updatedData) {
   let medicines = JSON.parse(localStorage.getItem('medicines')) || [];
-  medicines = medicines.map(med => med.name === originalName ? updatedData : med);
+  medicines = medicines.map(med => 
+    (med.name === originalName && med.expiry === originalExpiry) ? updatedData : med
+  );
   localStorage.setItem('medicines', JSON.stringify(medicines));
 }
-// New event listener for management link end 
-
 
 // TRACKING LINK START
 document.getElementById('trackingLink').addEventListener('click', function(event) {
@@ -482,7 +488,6 @@ function loadSalesHistory() {
              <button class="printReceiptBtn" data-index="${index}"><i class="fa-solid fa-print"></i></button>
               <button class="deleteReceiptBtn" data-index="${index}"><i class="fa-solid fa-trash"></i></button>
           </div>
-              
           </td>
       `;
       salesTableBody.appendChild(row);
@@ -490,16 +495,19 @@ function loadSalesHistory() {
 
   // Attach print functionality to each button
   document.querySelectorAll('.printReceiptBtn').forEach(btn => {
-      btn.addEventListener('click', e => {
-          const index = parseInt(e.target.getAttribute('data-index'));
-          printReceipt(history[index]);
+      btn.addEventListener('click', function(e) {
+          const index = parseInt(this.getAttribute('data-index'));
+          const sale = history[index];
+          if (sale) {
+              printReceipt(sale);
+          }
       });
   });
 
   // Attach delete functionality to each delete button
   document.querySelectorAll('.deleteReceiptBtn').forEach(btn => {
-      btn.addEventListener('click', e => {
-          const index = parseInt(e.target.getAttribute('data-index'));
+      btn.addEventListener('click', function(e) {
+          const index = parseInt(this.getAttribute('data-index'));
           deleteReceipt(index);
       });
   });
