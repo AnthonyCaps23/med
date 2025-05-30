@@ -320,7 +320,7 @@ function renderExpiryTrackingTables(medicines) {
 
 
 
-// SALES LINK HANDLER
+// SALES LINK HANDLER start
 document.getElementById('salesLink').addEventListener('click', function (event) {
   event.preventDefault();
   const contentElement = document.getElementById('content');
@@ -645,3 +645,177 @@ function deleteReceipt(index) {
 
 // Run initializeSales on page load
 window.addEventListener('DOMContentLoaded', initializeSales);
+// SALES LINK HANDLER end
+
+
+
+// REPORT LINK HANDLER start
+document.getElementById('reportLink').addEventListener('click', function(event) {
+  event.preventDefault();
+  const contentElement = document.getElementById('content');
+  const loadingEffect = document.getElementById('loadingEffect');
+  const disappearingSection = document.getElementById('disappearingSection');
+
+  disappearingSection.style.display = 'none';
+  loadingEffect.style.display = 'flex';
+  contentElement.style.display = 'none';
+
+  fetch('report.html') 
+    .then(response => response.text())
+    .then(data => {
+      setTimeout(() => {
+          contentElement.innerHTML = data; 
+          contentElement.style.display = 'block'; 
+          loadingEffect.style.display = 'none';
+          document.getElementById('dynamicHeader').innerText = 'Reports Dashboard';
+          initializeReport(); // Initialize report functionality
+      }, 900);
+    })
+    .catch(error => console.error('Error loading report.html:', error));
+});
+
+function initializeReport() {
+  // Get data from localStorage
+  const medicines = JSON.parse(localStorage.getItem('medicines')) || [];
+  const salesHistory = JSON.parse(localStorage.getItem('salesHistory')) || [];
+
+  // Calculate and display total sales
+  const totalSales = salesHistory.reduce((sum, sale) => sum + sale.total, 0);
+  document.getElementById('totalSales').textContent = `₱${totalSales.toFixed(2)}`;
+
+  // Display total transactions
+  document.getElementById('totalTransactions').textContent = salesHistory.length;
+
+  // Calculate and display average sale
+  const averageSale = salesHistory.length > 0 ? totalSales / salesHistory.length : 0;
+  document.getElementById('averageSale').textContent = `₱${averageSale.toFixed(2)}`;
+
+  // Calculate inventory statistics
+  const totalStockItems = medicines.length;
+  const lowStockItems = medicines.filter(med => parseInt(med.stock) < 50).length;
+  const today = new Date();
+  const expiringItems = medicines.filter(med => {
+    const expiryDate = new Date(med.expiry);
+    const daysLeft = Math.ceil((expiryDate - today) / (1000 * 60 * 60 * 24));
+    return daysLeft <= 30 && daysLeft > 0;
+  }).length;
+
+  // Display inventory statistics
+  document.getElementById('totalStockItems').textContent = totalStockItems;
+  document.getElementById('lowStockItems').textContent = lowStockItems;
+  document.getElementById('expiringItems').textContent = expiringItems;
+
+  // Render custom sales chart
+  renderCustomSalesChart(salesHistory);
+
+  // Populate recent sales table
+  const recentSalesTableBody = document.getElementById('recentSalesTableBody');
+  recentSalesTableBody.innerHTML = '';
+
+  // Show last 5 sales
+  const recentSales = salesHistory.slice(-5).reverse();
+  recentSales.forEach(sale => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${new Date(sale.date).toLocaleString()}</td>
+      <td>${sale.items.map(item => `${item.name} (x${item.quantity})`).join(', ')}</td>
+      <td>₱${sale.total.toFixed(2)}</td>
+    `;
+    recentSalesTableBody.appendChild(row);
+  });
+
+  // Populate inventory table
+  const inventoryTableBody = document.getElementById('inventoryTableBody');
+  if (inventoryTableBody) {
+    inventoryTableBody.innerHTML = '';
+    const today = new Date();
+
+    medicines.forEach(med => {
+      const expiryDate = new Date(med.expiry);
+      const daysLeft = Math.ceil((expiryDate - today) / (1000 * 60 * 60 * 24));
+      const stock = parseInt(med.stock);
+      
+      // Determine status
+      let status = '';
+      let statusClass = '';
+      
+      if (daysLeft <= 0) {
+        status = 'Expired';
+        statusClass = 'status-expired';
+      } else if (daysLeft <= 30) {
+        status = 'Expiring Soon';
+        statusClass = 'status-warning';
+      } else if (stock < 50) {
+        status = 'Low Stock';
+        statusClass = 'status-low';
+      } else {
+        status = 'In Stock';
+        statusClass = 'status-ok';
+      }
+
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${med.name}</td>
+        <td>${stock}</td>
+        <td><span class="status-indicator ${statusClass}">${status}</span></td>
+        <td>${new Date(med.expiry).toLocaleDateString()}</td>
+        <td>${daysLeft > 0 ? daysLeft : 'Expired'}</td>
+      `;
+      inventoryTableBody.appendChild(row);
+    });
+  }
+}
+
+function renderCustomSalesChart(salesHistory) {
+  const chartContainer = document.querySelector('.chart-wrapper');
+  if (!chartContainer) return;
+
+  // Clear existing content
+  chartContainer.innerHTML = '';
+
+  // Get last 7 days of sales
+  const last7Days = Array.from({ length: 7 }, (_, i) => {
+    const date = new Date();
+    date.setDate(date.getDate() - i);
+    return date.toISOString().split('T')[0];
+  }).reverse();
+
+  // Calculate daily totals
+  const dailyTotals = last7Days.map(date => {
+    return salesHistory
+      .filter(sale => sale.date.startsWith(date))
+      .reduce((sum, sale) => sum + sale.total, 0);
+  });
+
+  // Find maximum value for scaling
+  const maxValue = Math.max(...dailyTotals, 1000); // Minimum height of 1000
+
+  // Create chart elements
+  const chart = document.createElement('div');
+  chart.className = 'custom-chart';
+  chart.innerHTML = `
+    <div class="chart-bars">
+      ${last7Days.map((date, index) => `
+        <div class="chart-bar-container">
+          <div class="chart-bar" style="height: ${(dailyTotals[index] / maxValue) * 100}%">
+            <span class="bar-value">₱${dailyTotals[index].toFixed(2)}</span>
+          </div>
+          <span class="bar-label">${new Date(date).toLocaleDateString('en-US', { weekday: 'short' })}</span>
+        </div>
+      `).join('')}
+    </div>
+    <div class="chart-grid">
+      ${Array.from({ length: 5 }, (_, i) => `
+        <div class="grid-line" style="bottom: ${(i * 25)}%">
+          <span class="grid-value">₱${((maxValue * (4 - i)) / 4).toFixed(2)}</span>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  chartContainer.appendChild(chart);
+}
+
+// REPORT LINK HANDLER end
+
+

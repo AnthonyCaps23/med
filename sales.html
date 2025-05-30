@@ -2,52 +2,67 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="./style/sales.css" />
-</head>
-<body>
-   
-    <main style="margin-top: 30px; overflow-y: auto;height: 900px;">
-        <section id="sales">
-            <h2>New Sale <i class="fa-solid fa-coins"></i></h2>
-            <input type="text" id="searchMedicine" placeholder="Search medicine..." list="medicineList" />
-            <datalist id="medicineList"></datalist>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main style="margin-top: 30px; overflow-y: auto; height: 800px">
+      <section id="sales">
+        <h2><i class="fa-solid fa-cart-plus"></i> New Sale</h2>
+        <div class="input-group">
+          <input
+            type="text"
+            id="searchMedicine"
+            placeholder="Search medicine..."
+            list="medicineList"
+          />
+          <datalist id="medicineList"></datalist>
+          <input type="number" id="quantity" placeholder="Quantity" />
+          <button id="addToCart">
+            <i class="fa-solid fa-plus"></i> Add to Cart
+          </button>
+        </div>
 
-            <input type="number" id="quantity" placeholder="Quantity" />
-            <button id="addToCart"><i class="fa-solid fa-plus"></i> Add</button>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Medicine</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Subtotal</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="cartBody"></tbody>
+          </table>
+        </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Medicine</th>
-                        <th>Quantity</th>
-                        <th>Unit Price</th>
-                        <th>Subtotal</th>
-                        <th>Remove</th>
-                    </tr>
-                </thead>
-                <tbody id="cartBody"></tbody>
-            </table>
+        <p>Total Amount: <span id="totalAmount">₱0.00</span></p>
+        <button id="finalizeSale">
+          <i class="fa-solid fa-cart-shopping"></i> Proceed to Checkout
+        </button>
+      </section>
 
-            <p>Total: <span id="totalAmount">₱0.00</span></p>
-            <button id="finalizeSale">
-                <i class="fa-solid fa-cart-shopping"></i> Checkout
-            </button>
-        </section>
-        
-        <section id="salesHistory">
-            <h2>Sales History <i class="fa-solid fa-clock-rotate-left"></i></h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Total</th>
-                        <th>Items</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="salesHistoryBody"></tbody>
-            </table>
-        </section>
+      <section id="salesHistory">
+        <h2><i class="fa-solid fa-clock-rotate-left"></i> Sales History</h2>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Total</th>
+                <th>Items</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="salesHistoryBody"></tbody>
+          </table>
+        </div>
+      </section>
     </main>
     <script src="./script/main.js"></script>
-</body>
+  </body>
 </html>

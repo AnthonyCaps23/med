@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/report.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <main   style="margin-top: 20px;">
+      <section id="report">
+
+        <!-- Sales Overview -->
+        <div class="report-container">
+          <div class="report-item">
+            <h3>Total Sales</h3>
+            <p id="totalSales">₱0.00</p>
+          </div>
+          <div class="report-item">
+            <h3>Total Transactions</h3>
+            <p id="totalTransactions">0</p>
+          </div>
+          <div class="report-item">
+            <h3>Average Sale</h3>
+            <p id="averageSale">₱0.00</p>
+          </div>
+        </div>
+
+        <!-- Sales Chart -->
+        <div class="chart-container">
+          <h3>Sales Trend</h3>
+          <div class="chart-wrapper">
+            <canvas id="salesChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Inventory Overview -->
+        <div class="report-container">
+          <div class="report-item">
+            <h3>Total Stock Items</h3>
+            <p id="totalStockItems">0</p>
+          </div>
+          <div class="report-item">
+            <h3>Low Stock Items</h3>
+            <p id="lowStockItems">0</p>
+          </div>
+          <div class="report-item">
+            <h3>Expiring Soon</h3>
+            <p id="expiringItems">0</p>
+          </div>
+        </div>
+
+        <!-- Recent Sales Table -->
+        <div class="chart-container">
+          <h3>Recent Sales</h3>
+          <div class="table-responsive">
+            <table class="report-table">
+              <thead>
+                <tr>
+                  <th>Date & Time</th>
+                  <th>Items Sold</th>
+                  <th>Total Amount</th>
+                </tr>
+              </thead>
+              <tbody id="recentSalesTableBody">
+                <!-- Will be populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Add this after the Recent Sales Table section -->
+        <div class="chart-container">
+          <h3>Inventory Status</h3>
+          <div class="table-responsive">
+            <table class="report-table">
+              <thead>
+                <tr>
+                  <th>Medicine Name</th>
+                  <th>Current Stock</th>
+                  <th>Status</th>
+                  <th>Expiry Date</th>
+                  <th>Days Until Expiry</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryTableBody">
+                <!-- Will be populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="./script/main.js"></script>
+  </body>
+</html>

@@ -1,129 +1,249 @@
+/* Main container styles */
 main {
-  padding: 5rem;
-}
-  section {
-    padding: 0.5rem;
-    
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #2c2c2c;
-    border-radius: 5px;
-    font-size: 14px;
-}
-.expiry-track{
-  max-height: 200px; 
-  overflow-y: auto; 
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
+    padding: 2rem;
+    background: #1a1a1a;
+    min-height: 100vh;
 }
 
-.stock-track {
-    max-height: 200px; 
-    overflow-y: auto; 
-    scrollbar-width: none; 
-    -ms-overflow-style: none; 
+/* Section styles */
+section {
+    background: #242424;
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    border: 1px solid #333;
 }
 
-.stock-track::-webkit-scrollbar {
-    display: none; 
-}
-.expiry-track::-webkit-scrollbar{
-  display: none; 
-}
-
-thead {
-    position: sticky; 
-    top: 0; 
-    background-color: #2c2c2c; 
-}
-
-#stockLevelsBody {
-    width: 100%;
-}
-
-
-th,
-  td {
-    padding: 0.7rem;
-    border: 1px solid #444;
-    text-align: left;
-    color: #f4f4f4;
-  }
-  
-  th {
-    background-color: #444;
-    color: #ffffff;
-  }
-
-
-  .head-src {
+/* Header and search styles */
+.head-src {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
-  }
-  
-  h2 {
-    margin: 0;
-    color: #f4f4f4;
-  }
-  
-  input {
-    background: #2c2c2c;
-    color: white;
-    padding: 10px;
-    border-radius: 20px;
-    border: 1px solid #444;
-    transition: border 0.3s;
-    width: 250px;
-  }
-  
-  input:focus {
-    border: 1px solid #f4f4f4;
-    outline: none;
-  }
-  
-  
+    margin-bottom: 25px;
+}
 
-  
-  
-  @media (max-width: 768px) {
+.head-src h2 {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.head-src h2 i {
+    color: #2ecc71;
+}
+
+.head-src input {
+    background: #1a1a1a;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    width: 300px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.head-src input:focus {
+    border-color: #2ecc71;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.1);
+}
+
+.head-src input::placeholder {
+    color: #666;
+}
+
+/* Table container styles */
+.stock-track, .expiry-track {
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: auto;
+    margin-top: 20px;
+    max-height: 400px;
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: #2ecc71 #1a1a1a;
+}
+
+/* Custom scrollbar styles */
+.stock-track::-webkit-scrollbar,
+.expiry-track::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.stock-track::-webkit-scrollbar-track,
+.expiry-track::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 4px;
+}
+
+.stock-track::-webkit-scrollbar-thumb,
+.expiry-track::-webkit-scrollbar-thumb {
+    background: #2ecc71;
+    border-radius: 4px;
+}
+
+.stock-track::-webkit-scrollbar-thumb:hover,
+.expiry-track::-webkit-scrollbar-thumb:hover {
+    background: #27ae60;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 800px;
+    position: relative;
+}
+
+thead th {
+    background-color: #2a2a2a;
+    color: #b3b3b3;
+    padding: 15px 20px;
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    border-bottom: 2px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+tbody td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #333;
+    color: #ffffff;
+    vertical-align: middle;
+}
+
+tbody tr:hover {
+    background-color: #2a2a2a;
+}
+
+/* Status styles */
+.status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    display: inline-block;
+}
+
+.status.low {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.status.expired {
+    background-color: #c0392b;
+    color: white;
+}
+
+.status.warning {
+    background-color: #f1c40f;
+    color: #000;
+}
+
+.status.good {
+    background-color: #2ecc71;
+    color: white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
     main {
-      padding: 1rem;
-      margin-top: 30px;
+        padding: 1rem;
+        margin-top: 30px;
     }
-  
+
+    section {
+        padding: 20px;
+    }
+
     .head-src {
-      flex-direction: column; 
-      align-items: flex-start; 
+        flex-direction: column;
+        gap: 15px;
     }
-  
-    input {
-      width: 90%;
-      margin-top: 0.5rem; 
+
+    .head-src input {
+        width: 90%;
     }
-  
+
+    .stock-track, .expiry-track {
+        max-height: 300px;
+    }
+
     table {
-      font-size: 10px; 
-      z-index: 0;
+        min-width: 600px;
     }
-  
-    th, td {
-      padding: 0.5rem; 
+
+    thead th {
+        padding: 12px 15px;
+        font-size: 13px;
     }
-    .expiry-track{
-      max-height: 170px; 
-      overflow-y: auto; 
-      scrollbar-width: none; 
-      -ms-overflow-style: none; 
+
+    tbody td {
+        padding: 12px 15px;
+        font-size: 13px;
     }
-    
-    .stock-track {
-        max-height: 170px; 
-        overflow-y: auto; 
-        scrollbar-width: none; 
-        -ms-overflow-style: none; 
+   
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 15px;
     }
-  }
+
+    .head-src h2 {
+        font-size: 20px;
+    }
+
+    .stock-track, .expiry-track {
+        max-height: 250px;
+    }
+
+    table {
+        min-width: 500px;
+    }
+
+    thead th {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    tbody td {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .status {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+}
+
+/* Landscape mode for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .stock-track, .expiry-track {
+        max-height: 200px;
+    }
+}
+
+/* Add this to ensure proper stacking context */
+.stock-track table, .expiry-track table {
+    position: relative;
+    z-index: 1;
+}

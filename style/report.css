@@ -1,0 +1,566 @@
+/* Main container styles */
+main {
+    padding: 5rem;
+  }
+#report {
+    padding: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+
+/* Report container grid layout */
+.report-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* Individual report items */
+.report-item {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+}
+
+.report-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    border-color: #444;
+}
+
+.report-item h3 {
+    color: #b3b3b3;
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.report-item p {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Chart container */
+.chart-container {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid #333;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.chart-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(46, 204, 113, 0.2) 50%, 
+        transparent 100%
+    );
+}
+
+/* Base chart wrapper styles */
+.chart-wrapper {
+    width: 80%;
+    height: 70%;
+    position: relative;
+    margin: auto;
+    z-index: 2;
+}
+
+.chart-container h3 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chart-container h3::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 20px;
+    background: #2ecc71;
+    border-radius: 2px;
+}
+
+/* Table responsive container */
+.table-responsive {
+    width: 100%;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: #2ecc71 #1a1a1a;
+}
+
+/* Table styles */
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid #333;
+    min-width: 600px;
+}
+
+.report-table th,
+.report-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.report-table th {
+    background-color: #2a2a2a;
+    color: #b3b3b3;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.report-table tr:last-child td {
+    border-bottom: none;
+}
+
+.report-table tr:hover {
+    background-color: #2a2a2a;
+}
+
+/* Status indicators */
+.status-indicator {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    white-space: nowrap;
+    min-width: 100px;
+    text-align: center;
+}
+
+.status-low {
+    background-color: rgba(214, 48, 49, 0.2);
+    color: #ff6b6b;
+    border: 1px solid rgba(214, 48, 49, 0.3);
+}
+
+.status-ok {
+    background-color: rgba(39, 174, 96, 0.2);
+    color: #2ecc71;
+    border: 1px solid rgba(39, 174, 96, 0.3);
+}
+
+.status-expired {
+    background-color: rgba(214, 48, 49, 0.2);
+    color: #ff6b6b;
+    border: 1px solid rgba(214, 48, 49, 0.3);
+}
+
+.status-warning {
+    background-color: rgba(243, 156, 18, 0.2);
+    color: #f1c40f;
+    border: 1px solid rgba(243, 156, 18, 0.3);
+}
+
+/* Hover effect for inventory rows */
+#inventoryTableBody tr:hover {
+    background-color: #2a2a2a;
+    transition: background-color 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+      }
+    .report-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .report-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .report-item {
+        padding: 20px;
+    }
+
+    .report-item p {
+        font-size: 24px;
+    }
+
+    .report-table {
+        min-width: 500px;
+    }
+
+    .report-table th,
+    .report-table td {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .status-indicator {
+        padding: 4px 8px;
+        font-size: 11px;
+        min-width: 80px;
+    }
+
+    .chart-container {
+        height: 400px;
+        padding: 15px;
+       
+    }
+
+    .table-responsive {
+        margin-top: 15px;
+    }
+
+    .chart-wrapper {
+        width: 100%;
+        height: 70%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: thin;
+        scrollbar-color: #2ecc71 #1a1a1a;
+    }
+
+    .custom-chart {
+        padding: 15px 15px 30px 60px;
+    }
+
+    .chart-bar-container {
+        width: 40px;
+    }
+
+    .chart-bar {
+        width: 30px;
+    }
+
+    .bar-value {
+        font-size: 11px;
+        padding: 3px 6px;
+        top: -20px;
+    }
+
+    .bar-label {
+        font-size: 11px;
+        margin-top: 5px;
+    }
+
+    .grid-value {
+        font-size: 11px;
+        left: -45px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .chart-container {
+        height: 350px;
+        padding: 10px;
+    }
+
+
+    .custom-chart {
+        padding: 10px 10px 25px 50px;
+    }
+
+    .chart-bar-container {
+        width: 30px;
+    }
+
+    .chart-bar {
+        width: 25px;
+    }
+
+    .bar-value {
+        font-size: 10px;
+        padding: 2px 4px;
+        top: -18px;
+    }
+
+    .bar-label {
+        font-size: 10px;
+        margin-top: 4px;
+    }
+
+    .grid-value {
+        font-size: 10px;
+        left: -40px;
+    }
+
+    /* Adjust specific columns for better mobile display */
+    .report-table th:nth-child(1),
+    .report-table td:nth-child(1) {
+        min-width: 120px; /* Medicine name column */
+    }
+
+    .report-table th:nth-child(2),
+    .report-table td:nth-child(2) {
+        min-width: 80px; /* Current stock column */
+    }
+
+    .report-table th:nth-child(3),
+    .report-table td:nth-child(3) {
+        min-width: 90px; /* Status column */
+    }
+
+    .report-table th:nth-child(4),
+    .report-table td:nth-child(4) {
+        min-width: 100px; /* Expiry date column */
+    }
+
+    .report-table th:nth-child(5),
+    .report-table td:nth-child(5) {
+        min-width: 90px; /* Days until expiry column */
+    }
+}
+
+/* Landscape mode for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .chart-container {
+        height: 300px;
+    }
+
+    .chart-wrapper {
+        width: 90%;
+        height: 80%;
+    }
+
+    .custom-chart {
+        padding: 10px 10px 20px 50px;
+    }
+
+    .table-responsive {
+        margin-top: 8px;
+    }
+
+    .report-table th,
+    .report-table td {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+
+    .status-indicator {
+        padding: 2px 4px;
+        font-size: 9px;
+        min-width: 60px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .report-item {
+        box-shadow: none;
+        border: 1px solid #333;
+        background: #1a1a1a;
+    }
+    
+    .chart-container {
+        box-shadow: none;
+        border: 1px solid #333;
+        background: #1a1a1a;
+    }
+    
+    .report-table {
+        box-shadow: none;
+        border: 1px solid #333;
+        background: #1a1a1a;
+    }
+
+    .report-table th,
+    .report-table td {
+        color: #ffffff;
+    }
+}
+
+/* Custom Chart Styles */
+.custom-chart {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(46, 204, 113, 0.05) 0%, rgba(46, 204, 113, 0) 100%);
+    border-radius: 8px;
+    padding: 20px 20px 40px 80px;
+    display: flex;
+    align-items: flex-end;
+    z-index: 3;
+}
+
+.chart-bars {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 4;
+}
+
+.chart-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;
+    height: 100%;
+}
+
+.chart-bar {
+    width: 40px;
+    background: linear-gradient(180deg, #2ecc71 0%, #27ae60 100%);
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    transition: height 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+}
+
+.chart-bar:hover {
+    background: linear-gradient(180deg, #27ae60 0%, #219a52 100%);
+}
+
+.bar-value {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 6;
+}
+
+.chart-bar:hover .bar-value {
+    opacity: 1;
+}
+
+.bar-label {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #b3b3b3;
+    text-transform: uppercase;
+}
+
+.chart-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.grid-line {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.grid-value {
+    position: absolute;
+    left: -60px;
+    color: #b3b3b3;
+    font-size: 12px;
+}
+
+/* Inventory Table Specific Styles */
+#inventoryTableBody tr td:nth-child(3) {
+    text-align: center;
+}
+
+#inventoryTableBody tr td:nth-child(4),
+#inventoryTableBody tr td:nth-child(5) {
+    text-align: center;
+}
+
+/* Custom scrollbar for chart wrapper */
+.chart-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.chart-wrapper::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 4px;
+}
+
+.chart-wrapper::-webkit-scrollbar-thumb {
+    background: #2ecc71;
+    border-radius: 4px;
+}
+
+.chart-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #27ae60;
+}
+
+/* Add smooth scrolling for touch devices */
+.table-responsive {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Improve touch scrolling experience */
+.table-responsive::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 3px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #2ecc71;
+    border-radius: 3px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #27ae60;
+}
+
