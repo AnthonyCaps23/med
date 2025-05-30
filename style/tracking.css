@@ -1,13 +1,12 @@
 /* Main container styles */
 main {
     padding: 2rem;
-    background: #1a1a1a;
     min-height: 100vh;
+    margin-top: 10px;
 }
 
 /* Section styles */
 section {
-    background: #242424;
     color: white;
     padding: 30px;
     border-radius: 15px;
