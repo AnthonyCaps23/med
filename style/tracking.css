@@ -118,7 +118,7 @@ thead th {
     border-bottom: 2px solid #333;
     position: sticky;
     top: 0;
-    z-index: 2;
+    z-index: -2;
 }
 
 tbody td {
